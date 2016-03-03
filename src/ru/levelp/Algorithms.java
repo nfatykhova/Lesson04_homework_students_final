@@ -36,9 +36,6 @@ public class Algorithms {
        ** Сортировка по всем буквам с учетом длины
         */
 
-        // char[] char1 = a.toCharArray(); // преобразуем строки в массив char
-        // char[] char2 = b.toCharArray();
-
         int minLen = a.length();
         if (b.length() < minLen )
             minLen = b.length();
@@ -53,7 +50,6 @@ public class Algorithms {
         if ( a.length() > b.length() ) return 1;
         else return 0;
     }
-
 
     public Student[] abcBubbleSort(Student[] students) {
 

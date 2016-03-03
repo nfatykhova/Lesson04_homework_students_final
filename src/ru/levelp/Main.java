@@ -18,11 +18,16 @@ public class Main {
         print()
      */
         Student[] students = new Student[100];
-        for (int a = 0; a < students.length - 1; a++) {
+        int a = 0;
+        while (true) {
             System.out.println("1. Add student. \n2. Show all students. \n3. Exit");
             Scanner scan = new Scanner(System.in);
             int x = scan.nextInt();
             if (x == 1) {
+                if ( a == students.length ) {
+                    System.out.println("full");
+                    continue;
+                }
                 students[a] = new Student();
                 System.out.println("Enter name: ");
                 students[a].name = scan.next();
@@ -32,12 +37,13 @@ public class Main {
                 students[a].isFullTime = scan.nextBoolean();
                 System.out.println("Enter average score: ");
                 students[a].avr = scan.nextDouble();
+                a++;
+
             } else if (x == 2) {
-                int b = 0;
-                while (students[b] != null) {
-                    students[b].print();
-                    b++;
-                }
+                Algorithms alg = new Algorithms();
+                students = alg.abcBubbleSort(students);
+                alg.printArray(students);
+
             } else if (x == 3) break;
         }
 

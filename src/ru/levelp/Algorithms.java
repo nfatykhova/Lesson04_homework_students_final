@@ -36,7 +36,7 @@ public class Algorithms {
        ** Сортировка по всем буквам с учетом длины
         */
 
-        int minLen = a.length();
+        int minLen = a.length(); // = Math.min(a.length(), b.length());
         if (b.length() < minLen )
             minLen = b.length();
 
@@ -54,8 +54,8 @@ public class Algorithms {
     public Student[] abcBubbleSort(Student[] students) {
 
         int i;
-        for (i = 0; i < students.length; i++) {
-            for (int j = 0; j < students.length - 1; j++) {
+        for (i = 0; i < students.length - 1; i++) {  // -1 !!!
+            for (int j = 0; j < students.length - 1 - j; j++) {  // -1 - j !!!
                 int k = j + 1;
                 if ((students[j] != null) && (students[k] != null)) {
                     int comp = compare(students[j].name, students[k].name);

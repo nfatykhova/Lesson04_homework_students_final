@@ -17,10 +17,11 @@ public class Main {
     2:
         print()
      */
+        MyArrayList list = new MyArrayList();
         Student[] students = new Student[100];
         int a = 0;
         while (true) {
-            System.out.println("1. Add student. \n2. Show all students. \n3. Exit");
+            System.out.println("1. Add student. \n2. Show all students. \n3. Delete student \n4. Exit");
             Scanner scan = new Scanner(System.in);
             int x = scan.nextInt();
             if (x == 1) {
@@ -28,23 +29,25 @@ public class Main {
                     System.out.println("full");
                     continue;
                 }
-                students[a] = new Student();
-                System.out.println("Enter name: ");
-                students[a].name = scan.next();
-                System.out.println("Enter age: ");
-                students[a].age = scan.nextInt();
-                System.out.println("Enter fulltime status: ");
-                students[a].isFullTime = scan.nextBoolean();
-                System.out.println("Enter average score: ");
-                students[a].avr = scan.nextDouble();
+
+                list.add(students);
                 a++;
 
             } else if (x == 2) {
-                Algorithms alg = new Algorithms();
+
+                //               students = abcBubbleSort(students);
+
+                Algorithms alg = new Algorithms(); // нельзя вызвать метод класс, пока нет объекта класса!!!
                 students = alg.abcBubbleSort(students);
                 alg.printArray(students);
 
-            } else if (x == 3) break;
+            } else if (x == 3) {
+                System.out.println("Enter student's name: ");
+                String name = scan.next();
+                for (int i = 0; i < students.length - 1; i++) {
+                    if (students[i].name.equals(name)) list.remove(i);
+                }
+            } else if (x == 4) break;
         }
 
 

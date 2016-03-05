@@ -10,19 +10,19 @@ public class MyArrayList {
     Student[] values;
     Scanner scan = new Scanner(System.in);
 
-    public void add(Student[] students) {
+    public void add() {
 
         if (values == null) {
-            values = new Student[1];
+                values = new Student[1];
                 values[0] = new Student();
                 System.out.println("Enter name: ");
                 values[0].name = scan.next();
-                System.out.println("Enter age: ");
-                values[0].age = scan.nextInt();
-                System.out.println("Enter fulltime status: ");
-                values[0].isFullTime = scan.nextBoolean();
-                System.out.println("Enter average score: ");
-                values[0].avr = scan.nextDouble();
+//                System.out.println("Enter age: ");
+//                values[0].age = scan.nextInt();
+//                System.out.println("Enter fulltime status: ");
+//                values[0].isFullTime = scan.nextBoolean();
+//                System.out.println("Enter average score: ");
+//                values[0].avr = scan.nextDouble();
 
         } else {
             Student[] temp = new Student[values.length + 1];
@@ -32,26 +32,26 @@ public class MyArrayList {
             temp[temp.length - 1] = new Student();
             System.out.println("Enter name: ");
             temp[temp.length - 1].name = scan.next();
-            System.out.println("Enter age: ");
-            temp[temp.length - 1].age = scan.nextInt();
-            System.out.println("Enter fulltime status: ");
-            temp[temp.length - 1].isFullTime = scan.nextBoolean();
-            System.out.println("Enter average score: ");
-            temp[temp.length - 1].avr = scan.nextDouble();
+//            System.out.println("Enter age: ");
+//            temp[temp.length - 1].age = scan.nextInt();
+//            System.out.println("Enter fulltime status: ");
+//            temp[temp.length - 1].isFullTime = scan.nextBoolean();
+//            System.out.println("Enter average score: ");
+//            temp[temp.length - 1].avr = scan.nextDouble();
 
             values = temp;
         }
     }
 
-//    public Student[] get(int index) {
-//        // отдает n-ный эл-т из массива
-//        if (values == null) {
-//            System.err.println("Error: ArrayList is empty");
-//        }
-//        return values[index];
-//    }
+    public String getName(int index) {
+        // возвращает значение переменной students[i].name
+        if (values == null) {
+            System.err.println("Error: ArrayList is empty");
+        }
+        return values[index].name;
+    }
 
-    public int size(Student[] students) {
+    public int size() {
 
         if (values == null) {
             return 0;
@@ -111,9 +111,41 @@ public class MyArrayList {
 //
 //    }
 
-    public void clear(Student[] students) {
+    public void clear() {
 
         Student[] temp = new Student[0];
         values = temp;
+    }
+
+    public Student[] abcBubbleSort() {
+
+        Algorithms alg = new Algorithms();
+
+        int i;
+        for (i = 0; i < values.length; i++) {
+            for (int j = 0; j < values.length - 1; j++) {
+                int k = j + 1;
+                if ((values[j] != null) && (values[k] != null)) {
+                    int comp = alg.compare(values[j].name, values[k].name);
+                    if (comp == 1) {
+                        Student temp = values[j];
+                        values[j] = values[k];
+                        values[k] = temp;
+                    }
+                }
+
+            }
+        }
+
+        return values;
+    }
+
+    public void printArray() {
+        int b = 0;
+        while ((b < values.length) && (values[b] != null)) {
+            values[b].print();
+            b++;
+        }
+
     }
 }

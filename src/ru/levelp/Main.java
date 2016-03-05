@@ -18,35 +18,30 @@ public class Main {
         print()
      */
         MyArrayList list = new MyArrayList();
-        Student[] students = new Student[100];
-        int a = 0;
+        Algorithms alg = new Algorithms();
+
         while (true) {
             System.out.println("1. Add student. \n2. Show all students. \n3. Delete student \n4. Exit");
             Scanner scan = new Scanner(System.in);
             int x = scan.nextInt();
             if (x == 1) {
-                if ( a == students.length ) {
-                    System.out.println("full");
-                    continue;
-                }
 
-                list.add(students);
-                a++;
+                list.add();
 
             } else if (x == 2) {
 
-                //               students = abcBubbleSort(students);
-
-                Algorithms alg = new Algorithms(); // нельзя вызвать метод класс, пока нет объекта класса!!!
-                students = alg.abcBubbleSort(students);
-                alg.printArray(students);
+                list.abcBubbleSort();
+                list.printArray();
 
             } else if (x == 3) {
                 System.out.println("Enter student's name: ");
                 String name = scan.next();
-                for (int i = 0; i < students.length - 1; i++) {
-                    if (students[i].name.equals(name)) list.remove(i);
+                for (int i = 0; i < list.size(); i++) {
+                    String temp = list.getName(i);
+                    int comp = alg.compare(name, temp);
+                    if (comp == 0) list.remove(i);
                 }
+
             } else if (x == 4) break;
         }
 

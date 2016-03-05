@@ -51,36 +51,36 @@ public class Algorithms {
         else return 0;
     }
 
-    public Student[] abcBubbleSort(Student[] students) {
+//    public Student[] abcBubbleSort(Student[] students) {
+//
+//        int i;
+//        for (i = 0; i < students.length - 1; i++) {  // -1 !!!
+//            for (int j = 0; j < students.length - 1 - j; j++) {  // -1 - j !!!
+//                int k = j + 1;
+//                if ((students[j] != null) && (students[k] != null)) {
+//                    int comp = compare(students[j].name, students[k].name);
+//                    if (comp == 1) {
+//                        Student temp = students[j];
+//                        students[j] = students[k];
+//                        students[k] = temp;
+//                    }
+//                }
+//
+//            }
+//        }
+//
+//        return students;
+//
+//    }
 
-        int i;
-        for (i = 0; i < students.length - 1; i++) {  // -1 !!!
-            for (int j = 0; j < students.length - 1 - j; j++) {  // -1 - j !!!
-                int k = j + 1;
-                if ((students[j] != null) && (students[k] != null)) {
-                    int comp = compare(students[j].name, students[k].name);
-                    if (comp == 1) {
-                        Student temp = students[j];
-                        students[j] = students[k];
-                        students[k] = temp;
-                    }
-                }
-
-            }
-        }
-
-        return students;
-
-    }
-
-    public void printArray(Student[] students) {
-        int b = 0;
-        while ((b < students.length) && (students[b] != null)) {
-            students[b].print();
-            b++;
-        }
-
-        }
+//    public void printArray(Student[] students) {
+//        int b = 0;
+//        while ((b < students.length) && (students[b] != null)) {
+//            students[b].print();
+//            b++;
+//        }
+//
+//        }
     }
 
 

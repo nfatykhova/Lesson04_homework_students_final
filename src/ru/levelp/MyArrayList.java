@@ -17,12 +17,12 @@ public class MyArrayList {
                 values[0] = new Student();
                 System.out.println("Enter name: ");
                 values[0].name = scan.next();
-//                System.out.println("Enter age: ");
-//                values[0].age = scan.nextInt();
-//                System.out.println("Enter fulltime status: ");
-//                values[0].isFullTime = scan.nextBoolean();
-//                System.out.println("Enter average score: ");
-//                values[0].avr = scan.nextDouble();
+                System.out.println("Enter age: ");
+                values[0].age = scan.nextInt();
+                System.out.println("Enter fulltime status: ");
+                values[0].isFullTime = scan.nextBoolean();
+                System.out.println("Enter average score: ");
+                values[0].avr = scan.nextDouble();
 
         } else {
             Student[] temp = new Student[values.length + 1];
@@ -32,12 +32,12 @@ public class MyArrayList {
             temp[temp.length - 1] = new Student();
             System.out.println("Enter name: ");
             temp[temp.length - 1].name = scan.next();
-//            System.out.println("Enter age: ");
-//            temp[temp.length - 1].age = scan.nextInt();
-//            System.out.println("Enter fulltime status: ");
-//            temp[temp.length - 1].isFullTime = scan.nextBoolean();
-//            System.out.println("Enter average score: ");
-//            temp[temp.length - 1].avr = scan.nextDouble();
+            System.out.println("Enter age: ");
+            temp[temp.length - 1].age = scan.nextInt();
+            System.out.println("Enter fulltime status: ");
+            temp[temp.length - 1].isFullTime = scan.nextBoolean();
+            System.out.println("Enter average score: ");
+            temp[temp.length - 1].avr = scan.nextDouble();
 
             values = temp;
         }

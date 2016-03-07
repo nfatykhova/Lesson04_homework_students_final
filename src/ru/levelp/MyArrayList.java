@@ -1,54 +1,28 @@
 package ru.levelp;
 
+import java.rmi.StubNotFoundException;
+
 /**
  * Created by natalie on 05.03.16.
  */
 
-import java.util.Scanner;
 public class MyArrayList {
 
-    Student[] values;
-    Scanner scan = new Scanner(System.in);
+    private Student[] values;
 
-    public void add() {
+    public void add(Student value) {
 
         if (values == null) {
                 values = new Student[1];
-                values[0] = new Student();
-                System.out.println("Enter name: ");
-                values[0].name = scan.next();
-                System.out.println("Enter age: ");
-                values[0].age = scan.nextInt();
-                System.out.println("Enter fulltime status: ");
-                values[0].isFullTime = scan.nextBoolean();
-                System.out.println("Enter average score: ");
-                values[0].avr = scan.nextDouble();
-
+                values[0] = value;
         } else {
             Student[] temp = new Student[values.length + 1];
             for (int i = 0; i < values.length; i++) {
                 temp[i] = values[i];
             }
-            temp[temp.length - 1] = new Student();
-            System.out.println("Enter name: ");
-            temp[temp.length - 1].name = scan.next();
-            System.out.println("Enter age: ");
-            temp[temp.length - 1].age = scan.nextInt();
-            System.out.println("Enter fulltime status: ");
-            temp[temp.length - 1].isFullTime = scan.nextBoolean();
-            System.out.println("Enter average score: ");
-            temp[temp.length - 1].avr = scan.nextDouble();
-
+            temp[temp.length - 1] = value;
             values = temp;
         }
-    }
-
-    public String getName(int index) {
-        // возвращает значение переменной students[i].name
-        if (values == null) {
-            System.err.println("Error: ArrayList is empty");
-        }
-        return values[index].name;
     }
 
     public int size() {
@@ -57,6 +31,38 @@ public class MyArrayList {
             return 0;
         }
         return values.length;
+    }
+
+    public Student get(int index) {
+        // Student - тип, который надо вернуть. [] указали бы на то, что вернется массив этого типа
+
+        if (values == null) {
+            System.err.println("Error: ArrayList is empty");
+        }
+        return values[index];
+    }
+
+    public void insert(int index, Student value) {
+
+        // добавляет по индексу, остальное сдвигает
+
+        if (values == null) {
+            values = new Student[1];
+            values[0] = value;
+        } else {
+
+            Student[] temp = new Student[values.length + 1];
+
+            for (int i = 0; i < index; i++) {
+                temp[i] = values[i];
+            }
+            for (int i = index; i < values.length; i++) {
+                temp[i + 1] = values[i];
+            }
+            temp[index] = value;
+            values = temp;
+        }
+
     }
 
     public void remove(int index) {
@@ -87,65 +93,23 @@ public class MyArrayList {
         values = temp;
     }
 
+    public void set(int index, Student value) {
 
-//    public void insert(int index, int value) {
-//        // добавляет по индексу, остальное сдвигает
-//
-//        if (values == null) {
-//            values = new Student[1];
-//            values[0] = value;
-//
-//        } else {
-//
-//            int[] temp = new int[values.length + 1];
-//
-//            for (int i = 0; i < index; i++) {
-//                temp[i] = values[i];
-//            }
-//            for (int i = index; i < values.length; i++) {
-//                temp[i + 1] = values[i];
-//            }
-//            temp[index] = value;
-//            values = temp;
-//        }
-//
-//    }
+        // переписывает по индексу
+
+        if (values == null) {
+            System.err.println("Error: ArrayList is empty");
+
+        } else {
+
+            values[index] = value;
+        }
+
+    }
 
     public void clear() {
 
-        Student[] temp = new Student[0];
-        values = temp;
+        values = new Student[0];
     }
 
-    public Student[] abcBubbleSort() {
-
-        Algorithms alg = new Algorithms();
-
-        int i;
-        for (i = 0; i < values.length; i++) {
-            for (int j = 0; j < values.length - 1; j++) {
-                int k = j + 1;
-                if ((values[j] != null) && (values[k] != null)) {
-                    int comp = alg.compare(values[j].name, values[k].name);
-                    if (comp == 1) {
-                        Student temp = values[j];
-                        values[j] = values[k];
-                        values[k] = temp;
-                    }
-                }
-
-            }
-        }
-
-        return values;
-    }
-
-    public void printArray() {
-        int b = 0;
-        while ((b < values.length) && (values[b] != null)) {
-            values[b].print();
-            b++;
-        }
-
-    }
 }

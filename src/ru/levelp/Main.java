@@ -3,6 +3,7 @@ package ru.levelp;
 /**
  * Created by Nataly on 02.03.2016.
  */
+import java.util.ArrayList;
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
@@ -10,7 +11,8 @@ public class Main {
     /*
     1 - Добавить студента
     2 - Вывести список студентов
-    3 - Выйти из программы
+    3 - Удалить
+    4 - Выйти из программы
     1:
         Введите имя: ...
         Введите возраст: ...
@@ -25,28 +27,34 @@ public class Main {
             Scanner scan = new Scanner(System.in);
             int x = scan.nextInt();
             if (x == 1) {
+                Student st = new Student();
+                System.out.println("Enter name: ");
+                st.setName(scan.next());
+                System.out.println("Enter age: ");
+                st.setAge(scan.nextInt());
+                System.out.println("Enter fulltime status: ");
+                st.setIsFullTime(scan.nextBoolean());
+                System.out.println("Enter average score: ");
+                st.setAvr(scan.nextDouble());
+                System.out.println("Enter citizenship: ");
+                st.setFrom(scan.nextInt());
 
-                list.add();
+                list.add(st);
 
             } else if (x == 2) {
 
-                list.abcBubbleSort();
-                list.printArray();
+                alg.abcBubbleSort(list);
+                alg.printArray(list);
 
             } else if (x == 3) {
                 System.out.println("Enter student's name: ");
                 String name = scan.next();
                 for (int i = 0; i < list.size(); i++) {
-                    String temp = list.getName(i);
-                    int comp = alg.compare(name, temp);
-                    if (comp == 0) list.remove(i);
+                    String temp = list.get(i).getName();
+                    if (name.equals(temp)) list.remove(i);
                 }
 
             } else if (x == 4) break;
         }
-
-
-
-
     }
 }

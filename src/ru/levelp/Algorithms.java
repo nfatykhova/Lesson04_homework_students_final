@@ -27,7 +27,7 @@ package ru.levelp;
 
 public class Algorithms {
 
-    public int compare(String a, String b) {
+    private static int compare(String a, String b) {
 
 /*      возвращает
        -1, если строка a раньше по алфавиту, чем b
@@ -51,36 +51,34 @@ public class Algorithms {
         else return 0;
     }
 
-//    public Student[] abcBubbleSort(Student[] students) {
-//
-//        int i;
-//        for (i = 0; i < students.length - 1; i++) {  // -1 !!!
-//            for (int j = 0; j < students.length - 1 - j; j++) {  // -1 - j !!!
-//                int k = j + 1;
-//                if ((students[j] != null) && (students[k] != null)) {
-//                    int comp = compare(students[j].name, students[k].name);
-//                    if (comp == 1) {
-//                        Student temp = students[j];
-//                        students[j] = students[k];
-//                        students[k] = temp;
-//                    }
-//                }
-//
-//            }
-//        }
-//
-//        return students;
-//
-//    }
+    // сортировка строк "пузырьком"
 
-//    public void printArray(Student[] students) {
-//        int b = 0;
-//        while ((b < students.length) && (students[b] != null)) {
-//            students[b].print();
-//            b++;
-//        }
-//
-//        }
+    public void abcBubbleSort(MyArrayList list) {
+
+        for (int i = 0; i < list.size(); i++) {
+            for (int j = 0; j < list.size() - 1; j++) {
+                if (compare(list.get(j).getName(), list.get(j + 1).getName()) == 1) {
+                    Student temp = new Student();
+                    temp = list.get(j);
+                    list.set(j, list.get(j + 1));
+                    list.set(j + 1, temp);
+                }
+            }
+        }
+
+ //       return list;
+
+    }
+
+    // вывод на экран массива студентов
+
+    public void printArray(MyArrayList list) {
+
+        for (int i = 0; i < list.size(); i++ ) {
+            list.get(i).print();
+        }
+
+        }
     }
 
 

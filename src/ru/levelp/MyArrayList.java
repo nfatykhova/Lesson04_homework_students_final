@@ -93,20 +93,6 @@ public class MyArrayList {
         values = temp;
     }
 
-    public void set(int index, Student value) { // убрать этот метод
-
-        // переписывает по индексу
-
-        if (values == null) {
-            System.err.println("Error: ArrayList is empty");
-
-        } else {
-
-            values[index] = value;
-        }
-
-    }
-
     public void clear() {
 
         values = new Student[0];

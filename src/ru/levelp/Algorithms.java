@@ -65,9 +65,6 @@ public class Algorithms {
                 }
             }
         }
-
- //       return list;
-
     }
 
     // вывод на экран массива студентов

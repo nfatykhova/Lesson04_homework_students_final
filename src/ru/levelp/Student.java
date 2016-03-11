@@ -16,7 +16,17 @@ public class Student {
     private int age;
     private boolean isFullTime;
     private double avr;
-    private int from; // 0 - рф / 1 - казахстан / 2- белоруссия
+    private int from;
+
+    // конструктор
+
+//    public Student(String name, int age, boolean isFullTime, double avr, int from) {
+//        this.name = name;
+//        this.age = age;
+//        this.isFullTime = isFullTime;
+//        this.avr = avr;
+//        this.from = from;
+//    }
 
     public void print() {
         System.out.println("Name: " + name);

@@ -20,13 +20,13 @@ public class Student {
 
     // конструктор
 
-//    public Student(String name, int age, boolean isFullTime, double avr, int from) {
-//        this.name = name;
-//        this.age = age;
-//        this.isFullTime = isFullTime;
-//        this.avr = avr;
-//        this.from = from;
-//    }
+    public Student(String name, int age, boolean isFullTime, double avr, int from) {
+        this.name = name;
+        this.age = age;
+        this.isFullTime = isFullTime;
+        this.avr = avr;
+        this.from = from;
+    }
 
     public void print() {
         System.out.println("Name: " + name);

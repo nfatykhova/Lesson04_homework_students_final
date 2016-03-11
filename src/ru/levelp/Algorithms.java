@@ -56,12 +56,10 @@ public class Algorithms {
     public void abcBubbleSort(MyArrayList list) {
 
         for (int i = 0; i < list.size(); i++) {
-            for (int j = 0; j < list.size() - 1; j++) {
-                if (compare(list.get(j).getName(), list.get(j + 1).getName()) == 1) {
-                    Student temp = new Student();
-                    temp = list.get(j);
-                    list.set(j, list.get(j + 1));
-                    list.set(j + 1, temp);
+            for (i = 0; i < list.size() - 1; i++) {
+                if (compare(list.get(i).getName(), list.get(i + 1).getName()) == 1) {
+                    list.insert(i + 2, list.get(i));
+                    list.remove(i);
                 }
             }
         }

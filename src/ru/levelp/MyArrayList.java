@@ -56,7 +56,7 @@ public class MyArrayList {
             for (int i = 0; i < index; i++) {
                 temp[i] = values[i];
             }
-            for (int i = index; i < values.length; i++) {
+            for (int i = index; i < values.length - 1; i++) {
                 temp[i + 1] = values[i];
             }
             temp[index] = value;
@@ -93,7 +93,7 @@ public class MyArrayList {
         values = temp;
     }
 
-    public void set(int index, Student value) {
+    public void set(int index, Student value) { // убрать этот метод
 
         // переписывает по индексу
 

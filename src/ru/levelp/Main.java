@@ -27,17 +27,18 @@ public class Main {
             Scanner scan = new Scanner(System.in);
             int x = scan.nextInt();
             if (x == 1) {
-                Student st = new Student();
+
                 System.out.println("Enter name: ");
-                st.setName(scan.next());
+                String name = scan.next();
                 System.out.println("Enter age: ");
-                st.setAge(scan.nextInt());
+                int age = scan.nextInt();
                 System.out.println("Enter fulltime status: ");
-                st.setIsFullTime(scan.nextBoolean());
+                boolean isFullTime = scan.nextBoolean();
                 System.out.println("Enter average score: ");
-                st.setAvr(scan.nextDouble());
+                double avr = scan.nextDouble();
                 System.out.println("Enter citizenship: ");
-                st.setFrom(scan.nextInt());
+                int from = scan.nextInt();
+                Student st = new Student(name, age, isFullTime, avr, from);
 
                 list.add(st);
 
